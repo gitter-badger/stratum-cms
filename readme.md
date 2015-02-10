@@ -1,1 +1,1 @@
-"Test commit from home.." 
+Add a .env file with a corresponding "CLOUDINARY_URL"
