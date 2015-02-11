@@ -4,8 +4,7 @@ require('dotenv').load();
 
 // Require keystone
 var keystone = require('keystone'),
-	cons = require('consolidate'),
-	nunjucks = require('nunjucks');
+	handlebars = require('express-handlebars');
 
 // Initialise Keystone with your project's configuration.
 // See http://keystonejs.com/guide/config for available options
@@ -20,14 +19,21 @@ keystone.init({
 	'static': 'public',
 	'favicon': 'public/favicon.ico',
 	'views': 'templates/views',
-	'view engine': 'html',
-	'custom engine': cons.nunjucks,
+	'view engine': 'hbs',
+	
+	'custom engine': handlebars.create({
+		layoutsDir: 'templates/views/layouts',
+		partialsDir: 'templates/views/partials',
+		defaultLayout: 'default',
+		helpers: new require('./templates/views/helpers')(),
+		extname: '.hbs'
+	}).engine,
 	
 	'auto update': true,
 	'session': true,
 	'auth': true,
 	'user model': 'User',
-	'cookie secret': '?wW)u^L>IeZ6g~kF(B;N$HME:S`moUOvq6Xo:LJqKB?L,%g^3B:%s7/vL9TTuazT'
+	'cookie secret': 'DZif7v6Sey|=B5I3R3c.?x`Hwequnei0MO*tA?9*anm4/zWikH~M9[$5*X<k3/$)'
 
 });
 
