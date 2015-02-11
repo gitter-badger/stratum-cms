@@ -1,20 +1,24 @@
 <div class="container">
 	<div class="row">
 		<div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
+			{{#with data.post}}
 			<article>
 				<p><a href="/blog">&larr; back to the blog</a></p>
 				<hr>
 				<header>
-					<h1>{{data.post.title}}{{#if data.post.subtitle}} <small>{{data.post.subtitle}}</small>{{/if}}</h1>
+					<h1>{{title}}{{#if subtitle}} <small>{{subtitle}}</small>{{/if}}</h1>
 					<h5>
-						{{{categoryList data.post.categories prefix="Posted in "}}}
+						{{{categoryList categories prefix="Posted in "}}}
 						{{#if author.name.first}}by {{author.name.first}}{{/if}}
 					</h5>
 				</header>
+				<img src="{{cloudinaryUrl image}}" class="img-responsive">
+				{{!-- {{#if image.url }}<img src="{{image.url}}" alt="" class="img-responsive">{{/if}} --}}
 				<div class="post">
-					{{{data.post.content.extended}}}
+					{{{content.extended}}}
 				</div>
 			</article>
+			{{/with}}
 		</div>
 	</div>
 </div>
