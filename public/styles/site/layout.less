@@ -24,6 +24,9 @@ article {
         margin-bottom: @line-height-computed;
     }
 }
+.navbar{
+    margin-bottom: 0px;
+}
 .navbar-default {
     background-color: @navBlu;
     border-color: darken(@navBlu, 10%);
@@ -38,4 +41,14 @@ article {
         color: darken(@navBlu, 10%);
         // color: lighten(@navBlu, 10%);
     }
+}
+.carousel-inner>.item>img, .carousel-inner>.item>a>img {
+    display: block;
+    height: auto;
+    max-width: 100%;
+    line-height: 1;
+    width: 100%;
+}
+#head-carousel{
+    margin-bottom: 30px;
 }
