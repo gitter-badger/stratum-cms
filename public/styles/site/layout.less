@@ -1,28 +1,41 @@
+@navBlu: #358FDA;
 #header {
-	margin-top: 30px;
+    // margin-top: 30px;
 }
-
 #footer {
-	margin-top: 30px;
-	border-top: 1px solid @gray-lighter;
-	padding-top: 30px;
-	color: @gray-light;
+    margin-top: 30px;
+    border-top: 1px solid @gray-lighter;
+    padding-top: 30px;
+    color: @gray-light;
 }
-
-.gallery-image img{
+.gallery-image img {
     display: block;
     max-width: 100%;
     height: auto;
 }
-
-.post{
-	margin-bottom: @line-height-computed;
-	&:last-child{
-		margin-bottom: 0;
-	}
+.post {
+    margin-bottom: @line-height-computed;
+    &:last-child {
+        margin-bottom: 0;
+    }
 }
-article{
-	img{
-		margin-bottom: @line-height-computed;
-	}
+article {
+    img {
+        margin-bottom: @line-height-computed;
+    }
+}
+.navbar-default {
+    background-color: @navBlu;
+    border-color: darken(@navBlu, 10%);
+    .navbar-nav>li>a, .navbar-brand {
+        color: lighten(@navBlu, 35%);
+        &:hover {
+            color: lighten(@navBlu, 45%);
+        }
+    }
+    .navbar-nav>.active>a, .navbar-nav>.active>a:hover, {
+        background-color: lighten(@navBlu, 20%);
+        color: darken(@navBlu, 10%);
+        // color: lighten(@navBlu, 10%);
+    }
 }
