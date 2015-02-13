@@ -41,6 +41,15 @@ article {
         color: darken(@navBlu, 10%);
         // color: lighten(@navBlu, 10%);
     }
+    .navbar-toggle {
+    	border-color: lighten(@navBlu, 30%);
+    	&:hover, &:focus{
+    		background-color: darken(@navBlu, 10%);
+    	}
+    	.icon-bar {
+	    	background-color: lighten(@navBlu, 30%);
+		}
+    }
 }
 .carousel-inner>.item>img, .carousel-inner>.item>a>img {
     display: block;
