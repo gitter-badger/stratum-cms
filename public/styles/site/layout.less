@@ -24,9 +24,6 @@ article {
         margin-bottom: @line-height-computed;
     }
 }
-.navbar{
-    margin-bottom: 0px;
-}
 .navbar-default {
     background-color: @navBlu;
     border-color: darken(@navBlu, 10%);
@@ -36,19 +33,47 @@ article {
             color: lighten(@navBlu, 45%);
         }
     }
+    .navbar-nav>li>a.user {
+        display: none;
+        @media (min-width: @grid-float-breakpoint) {
+        	display: block;
+            padding-top: 11px;
+            padding-bottom: 11px;
+            padding-right: 0px;
+        }
+    }
     .navbar-nav>.active>a, .navbar-nav>.active>a:hover, {
         background-color: lighten(@navBlu, 20%);
         color: darken(@navBlu, 10%);
         // color: lighten(@navBlu, 10%);
     }
     .navbar-toggle {
-    	border-color: lighten(@navBlu, 30%);
-    	&:hover, &:focus{
-    		background-color: darken(@navBlu, 10%);
-    	}
-    	.icon-bar {
-	    	background-color: lighten(@navBlu, 30%);
-		}
+        border-color: lighten(@navBlu, 30%);
+        &:hover, &:focus {
+            background-color: darken(@navBlu, 10%);
+        }
+        .icon-bar {
+            background-color: lighten(@navBlu, 30%);
+        }
+    }
+}
+.header-first {
+    .navbar {
+        margin: 0;
+    }
+    @media (min-width: @grid-float-breakpoint) {
+        position: absolute;
+        width: 100%;
+        .navbar {
+            background-color: fade(@navBlu, 80%);
+            width: 90%;
+            top: 21px;
+            margin: 0 auto;
+            border-radius: 8px;
+        }
+        .container {
+            width: 98%;
+        }
     }
 }
 .carousel-inner>.item>img, .carousel-inner>.item>a>img {
@@ -58,6 +83,6 @@ article {
     line-height: 1;
     width: 100%;
 }
-#head-carousel{
+#head-carousel {
     margin-bottom: 30px;
 }
