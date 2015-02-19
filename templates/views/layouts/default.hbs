@@ -42,7 +42,7 @@
 							</ul>
 							<ul class="nav navbar-nav navbar-right">
 								{{#if user}}
-								<li><a href="#" class="user"><img src="{{#if user.image.url}}{{cloudinaryUrl user.image width="27" height="27" crop="fill"}}{{else}}/images/avatar.png{{/if}}" alt="" width="27" class="img-circle"></a></li>
+								<li><a href="#" class="user"><img src="{{#if user.image.exists}}{{cloudinaryUrl user.image width="27" height="27" crop="fill"}}{{else}}/images/avatar.png{{/if}}" alt="" width="27" class="img-circle"></a></li>
 								<li><a href="/keystone/signout">Sign Out</a></li>
 								{{else}}
 								<li><a href="/keystone/signin">Sign In</a></li>
