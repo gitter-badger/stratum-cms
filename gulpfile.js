@@ -1,6 +1,4 @@
 var gulp = require('gulp'),
-	jshint = require('gulp-jshint'),
-	jshintReporter = require('jshint-stylish'),
 	eslint = require('gulp-eslint'),
 	watch = require('gulp-watch');
 
@@ -17,9 +15,6 @@ gulp.task('lint', function(){
 	gulp.src(paths.src)
 		.pipe(eslint())
 		.pipe(eslint.format());
-		// .pipe(eslint.failOnError());
-		// .pipe(jshint.reporter(jshintReporter));
-
 });
 
 // gulp watcher for lint
