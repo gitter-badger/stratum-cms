@@ -60,8 +60,9 @@ keystone.set('routes', require('./routes'));
 // default email templates, you may remove them if you're using your own.
 
 // Configure the navigation bar in Keystone's Admin UI
-
+ 
 keystone.set('nav', {
+	'content': ['content-pages', 'content-categories'],
 	'posts': ['posts', 'post-categories'],
 	'galleries': 'galleries',
 	'enquiries': 'enquiries',
