@@ -17,6 +17,7 @@ ContentCategory.add({
 	description: {type: Types.Textarea, height: 150 },
 	registerSpecific: { type: Boolean, note: 'Only visible to logged in users'}
 });
+ContentCategory.relationship({path: 'pages', ref: 'ContentPage', refPath: 'category'});
 
 ContentCategory.schema.virtual('content.full').get(function() {
 	return this.content.extended || this.content.brief;
