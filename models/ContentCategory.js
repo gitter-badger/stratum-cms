@@ -9,6 +9,7 @@ var keystone = require('keystone'),
  */
 
 var ContentCategory = new keystone.List('ContentCategory', {
+	sortable: true,
 	autokey: { from: 'name', path: 'slug', unique: true }
 });
 
