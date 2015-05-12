@@ -4,7 +4,8 @@ require('dotenv').load();
 
 // Require keystone
 var keystone = require('keystone'),
-	handlebars = require('express-handlebars');
+	handlebars = require('express-handlebars'),
+	fs = require('fs');
 
 // Initialise Keystone with your project's configuration.
 // See http://keystonejs.com/guide/config for available options
@@ -52,6 +53,13 @@ keystone.set('locals', {
 	editable: keystone.content.editable
 });
 
+if(keystone.get('env') === 'development' && fs.existsSync('last_commit.json')){
+	try{
+		keystone.set('last commit', JSON.parse(fs.readFileSync('last_commit.json', 'utf8')));
+	} catch(e){
+		console.log(e);
+	}
+}
 // Load your project's Routes
 
 keystone.set('routes', require('./routes'));

@@ -334,5 +334,10 @@ module.exports = function() {
 		return new hbs.SafeString(output);
 	};
 	
+	_helpers.shortenString = function(string, length){
+		var output = string + '';
+		return new hbs.SafeString(output.substring(0, length || 10));
+	};
+
 	return _helpers;
 };

@@ -24,7 +24,7 @@ var _ = require('underscore'),
 exports.initLocals = function(req, res, next) {
 	
 	var locals = res.locals;
-	
+
 	var categoryQuery = keystone.list('ContentCategory').model
 				.find()
 				.populate('pages')
@@ -35,7 +35,7 @@ exports.initLocals = function(req, res, next) {
 		{ label: 'Blog',		key: 'blog',		href: '/blog' }
 	];
 	locals.user = req.user;
-	
+	locals.lastCommit = keystone.get('last commit');
 	categoryQuery.exec(function(err, categories) {
 		if (err) {
 			console.log('could not load categories');
