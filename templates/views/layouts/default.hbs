@@ -96,6 +96,14 @@
 		</div>
 		<div class="container">
 			<div id="footer">
+			{{#if lastCommit}}
+			{{#with lastCommit}}
+				<div id="dev-info" style="float: right; text-align: right;">
+					latest commit <a href="{{html_url}}">{{shortenString sha 10}}</a><br/>
+					<img src="{{author.avatar_url}}&s=40" width="20" height="20" class="img-rounded"> <a href="{{author.html_url}}">{{author.login}}</a> authored {{date commit.author.date timeago=true}}
+				</div>
+			{{/with}}
+			{{/if}}
 				<p>Powered by <a href="http://keystonejs.com" target="_blank">KeystoneJS</a>.</p>
 			</div>
 		</div>
