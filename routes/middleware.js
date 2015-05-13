@@ -31,8 +31,8 @@ exports.initLocals = function(req, res, next) {
 				.sort('sortOrder');
 
 	locals.navLinks = [
-		{ label: 'Home',		key: 'home',		href: '/' },
-		{ label: 'Blog',		key: 'blog',		href: '/blog' }
+		// { label: 'Home',		key: 'home',		href: '/' },
+		{ label: 'Nyheter',		key: 'news',		href: '/nyheter' }
 	];
 	locals.user = req.user;
 	locals.lastCommit = keystone.get('last commit');
