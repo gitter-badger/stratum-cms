@@ -209,6 +209,11 @@ module.exports = function() {
 		}		
 	};
 	
+	// ### News Helpers
+	_helpers.newsUrl = function(newsSlug){
+		return ('/news/item/' + newsSlug);
+	};
+
 	// ### Content Url Helpers
 	// KeystoneJS url handling so that the routes are in one place for easier
 	// editing.  Should look at Django/Ghost which has an object layer to access
