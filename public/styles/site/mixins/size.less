@@ -1,0 +1,20 @@
+.component-size(@padding-vertical; @padding-horizontal; @font-size; @line-height; @border-radius; ) {
+  padding: @padding-vertical @padding-horizontal;
+  // font-size: @font-size;
+  line-height: @line-height;
+  border-radius: @border-radius;
+}
+
+.generic-size(){
+	.component-size(@padding-base-vertical; @padding-base-horizontal; @font-size-base; @line-height-base; @border-radius-base; );
+}
+.generic-size-lg(){
+  .component-size(@padding-large-vertical; @padding-large-horizontal; @font-size-large; @line-height-large; @border-radius-large);	
+}
+.generic-size-sm {
+  // line-height: ensure proper height of button next to small input
+  .component-size(@padding-small-vertical; @padding-small-horizontal; @font-size-small; @line-height-small; @border-radius-small);
+}
+.generic-size-xs {
+  .component-size(@padding-xs-vertical; @padding-xs-horizontal; @font-size-small; @line-height-small; @border-radius-small);
+}
