@@ -4,10 +4,11 @@
 <div class="container">
 	<div class="row">
 		<div class="col-sm-8 col-md-9">
-			<h4 class="text-weight-normal">Showing {{ data.news.results.length}} post.</h4>
+			{{!-- <h4 class="text-weight-normal">Showing {{ data.news.results.length}} post.</h4> --}}
 			<div class="blog">
 				{{# each data.news.results}}
-				<div data-ks-editable="{{#if ../user}}{{adminEditableUrl ../../user _id}}{{/if}}" class="post clearfix">
+				{{../../user}}
+				<div data-ks-editable="{{#if ../user}}{{adminEditableUrl ../../user "NewsItem" _id}}{{/if}}" class="post clearfix">
 					<img src="{{cloudinaryUrl image width=200 height=200 crop='fill' gravity='north'}}" class="img-circle pull-right">
 					<h2><a href="{{newsUrl slug}}">{{{title}}}</a></h2>
 					<p class="lead text-muted">{{{categoryList categories prefix="Posted in "}}}

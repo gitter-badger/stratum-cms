@@ -38,6 +38,7 @@ exports = module.exports = function(app) {
 	app.get('/', routes.views.index);
 
 	app.get('/nyheter', routes.views.news);
+	app.get('/nyheter/:newsitem/', routes.views.newsitem);
 	// app.get('/nyheter/:newsitem', routes.views.newsitem);
 	app.get('/blog/:category?', routes.views.blog);
 	app.get('/blog/post/:post', routes.views.post);

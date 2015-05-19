@@ -1,0 +1,17 @@
+<div class="news-roll">
+	<h2>Nyheter</h2>
+	<ul>
+	{{#each data.news}}
+		<li>
+			<span class="news-roll-date">{{date publishedDate timeago=true}}</span>
+			<span class="news-roll-title"><a href="{{newsUrl slug}}">
+				{{title}}
+			</a></span>
+			<p>{{content.lead}}</p>
+			<a href="{{newsUrl slug}}">
+				<span class="news-roll-readmore">Läs mer</span>
+			</a>
+		</li>
+	{{/each}}
+	</ul>
+</div>

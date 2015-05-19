@@ -215,7 +215,7 @@ module.exports = function() {
 	
 	// ### News Helpers
 	_helpers.newsUrl = function(newsSlug){
-		return ('/news/item/' + newsSlug);
+		return ('/nyheter/' + newsSlug);
 	};
 
 	// ### Content Url Helpers
