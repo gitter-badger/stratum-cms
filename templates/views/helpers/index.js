@@ -70,8 +70,12 @@ module.exports = function() {
 		
 		var f = options.hash.format || 'MMM Do, YYYY',
 			timeago = options.hash.timeago,
+			locale = options.hash.locale || 'sv',
 			date;
 		
+		// set to swedish if nothing else is specified
+		moment.locale(locale);
+
 		// if context is undefined and given to moment then current timestamp is given
 		// nice if you just want the current year to define in a tmpl
 		if (timeago) {
