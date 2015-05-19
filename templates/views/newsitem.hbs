@@ -1,0 +1,47 @@
+<div class="news-item-full">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
+				{{#with data.newsItem}}
+				<article>
+					{{!-- <p><a href="/blog">&larr; back to the blog</a></p> --}}
+					{{!-- <hr> --}}
+					<header>
+						<span class="published-at pull-right"><span class="glyphicon glyphicon-time" aria-hidden="true"></span> {{date publishedDate format="Do MMM, YYYY"}}</span>
+						<h1>{{title}}{{#if subtitle}} <small>{{subtitle}}</small>{{/if}}</h1>
+						{{!-- <h5> --}}
+						{{!-- {{{categoryList categories prefix="Posted in "}}} --}}
+						{{!-- {{#if author.name.first}}by {{author.name.first}}{{/if}} --}}
+						{{!-- </h5> --}}
+					</header>
+					<p class="lead">{{content.lead}}</p>
+		{{#if image.exists}}
+				</div>
+			</div>
+		</div>
+		<img src="{{cloudinaryUrl image width=1400 height=600 crop='fill' gravity='faces'}}" class="news-item-main-img img-responsive">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
+				{{/if}}
+					{{!-- {{#if image.url }}<img src="{{image.url}}" alt="" class="img-responsive">{{/if}} --}}
+					<div class="post">
+						{{{content.extended}}}
+					</div>
+				</article>
+				</div>
+				<div class="col-sm-12">
+				<div class="news-item-author">
+					{{#with author}}
+					{{#if image.exists}}<img src="{{cloudinaryUrl image width="80" height="80" crop="fill" gravity="face"}}" alt="{{name.first}} {{name.last}}">{{/if}}
+					<div class="news-item-author-info">
+						<span class="news-item-name">{{name.first}} {{name.last}}</span>
+						<span class="news-item-email">{{email}}</span>
+					</div>
+					{{/with}}
+				</div>
+				</div>
+				{{/with}}
+		</div>
+	</div>
+</div>

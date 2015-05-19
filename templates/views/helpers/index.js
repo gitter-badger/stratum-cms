@@ -70,8 +70,12 @@ module.exports = function() {
 		
 		var f = options.hash.format || 'MMM Do, YYYY',
 			timeago = options.hash.timeago,
+			locale = options.hash.locale || 'sv',
 			date;
 		
+		// set to swedish if nothing else is specified
+		moment.locale(locale);
+
 		// if context is undefined and given to moment then current timestamp is given
 		// nice if you just want the current year to define in a tmpl
 		if (timeago) {
@@ -167,9 +171,9 @@ module.exports = function() {
 	};
 	
 	// Used to generate the link for the admin edit post button
-	_helpers.adminEditableUrl = function(user, options) {
+	_helpers.adminEditableUrl = function(user, list, options) {
 		var rtn = keystone.app.locals.editable(user, {
-			'list': 'Post',
+			'list': list,
 			'id': options
 		});
 		return rtn;
@@ -209,6 +213,11 @@ module.exports = function() {
 		}		
 	};
 	
+	// ### News Helpers
+	_helpers.newsUrl = function(newsSlug){
+		return ('/nyheter/' + newsSlug);
+	};
+
 	// ### Content Url Helpers
 	// KeystoneJS url handling so that the routes are in one place for easier
 	// editing.  Should look at Django/Ghost which has an object layer to access
