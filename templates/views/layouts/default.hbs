@@ -99,7 +99,7 @@
 			{{#if lastCommit}}
 			{{#with lastCommit.commit}}
 				<div id="dev-info" style="float: right; text-align: right; margin-bottom: 10px;">
-					<img src="{{author.avatar_url}}&s=40" width="20" height="20" class="img-rounded"> <a target="_blank" href="{{author.html_url}}">{{author.login}}</a> authored {{date commit.author.date timeago=true}}</br>
+					<img src="{{author.avatar_url}}&s=40" width="20" height="20" class="img-rounded"> <a target="_blank" href="{{author.html_url}}">{{author.login}}</a> authored {{date commit.author.date locale="en" timeago=true}}</br>
 					branch {{/with}}<a target="_blank" href="{{lastCommit._links.html}}">{{lastCommit.name}}</a>, 
 					{{#with lastCommit.commit}}latest commit <a target="_blank" href="{{html_url}}">{{shortenString sha 10}}</a><br/>
 				</div>
