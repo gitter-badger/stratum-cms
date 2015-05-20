@@ -15,7 +15,7 @@ keystone.init({
 
 	'name': 'Test Keystone',
 	'brand': 'Test Keystone',
-	
+	'wysiwyg cloudinary images': true,
 	'less': 'public',
 	'static': 'public',
 	'favicon': 'public/favicon.ico',

@@ -13,7 +13,22 @@
 				<img src="{{cloudinaryUrl image width="750" crop="fill"}}" class="img-responsive">
 				{{!-- {{#if image.url }}<img src="{{image.url}}" alt="" class="img-responsive">{{/if}} --}}
 				<div class="post">
-					{{{content.extended}}}
+					<div class="well">
+						<span style="text-transform: uppercase; font-weight: bold; font-size: 12px; float: right;">Markdown</span>
+						{{#if content.markdown.html}}
+							{{{content.markdown.html}}}
+						{{else}}
+							No content...
+						{{/if}}
+					</div>
+					<div class="well">
+						<span style="text-transform: uppercase; font-weight: bold; font-size: 12px; float: right;">wysiwyg html</span>
+						{{#if content.wysiwyg}}
+							{{{content.wysiwyg}}}
+						{{else}}
+							No content...
+						{{/if}}
+					</div>
 				</div>
 			</article>
 			{{/with}}

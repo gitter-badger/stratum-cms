@@ -21,8 +21,10 @@ ContentPage.add({
 	subtitle: { type: String },
 	image: { type: Types.CloudinaryImage },
 	content: {
-		brief: { type: Types.Textarea, height: 150 },
-		extended: { type: Types.Html, wysiwyg: true, height: 400 }
+		brief: { type: Types.Textarea, height: 150, hidden: true },
+		extended: { type: Types.Html, wysiwyg: true, height: 400, hidden: true },
+		markdown: { label: 'Content Markdown', type: Types.Markdown, height: 400, toolbarOptions: { hiddenButtons: 'H1,H6,Code' } },
+		wysiwyg: { type: Types.Html, height: 400, wysiwyg: true }
 	}
 });
 
