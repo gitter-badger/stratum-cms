@@ -1,7 +1,6 @@
-# Stratum CMS
+# Stratum CMS [![Stories in Ready](https://badge.waffle.io/registercentrum/stratum-cms.png?label=ready&title=Ready)](http://waffle.io/registercentrum/stratum-cms) [![Stories in Progress](https://badge.waffle.io/registercentrum/stratum-cms.png?label=in+Progress&title=In%20Progress)](http://waffle.io/registercentrum/stratum-cms)
 
-[![Stories in Ready](https://badge.waffle.io/registercentrum/stratum-cms.png?label=ready&title=Ready)](http://waffle.io/registercentrum/stratum-cms)
-[![Stories in Progress](https://badge.waffle.io/registercentrum/stratum-cms.png?label=in+Progress&title=In%20Progress)](http://waffle.io/registercentrum/stratum-cms)
+
 
 ##Installation notes
 * Add a .env file with a corresponding "CLOUDINARY_URL"
