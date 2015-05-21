@@ -1,9 +1,9 @@
 {
-  "name": "test-keystone",
-  "version": "0.0.0",
+  "name": "stratum-cms",
+  "version": "0.0.1",
   "private": true,
   "dependencies": {
-    "keystone": "~0.3.8",
+    "keystone": "~0.3.10",
     "async": "~0.9.0",
     "underscore": "~1.7.0",
     "moment": "~2.8.1",
