@@ -20,7 +20,7 @@ ContentPage.add({
 	publishedDate: { type: Types.Date, index: true, dependsOn: { state: 'published' } },
 	subtitle: { type: String },
 	image: { type: Types.CloudinaryImage },
-	images: { note: 'Add images which should be placed inline.', type: Types.CloudinaryImages },
+	images: { note: 'Add images which should be placed inline.', type: Types.CloudinaryImages, folder: 'inline-images' },
 	content: {
 		brief: { type: Types.Textarea, height: 150, hidden: true },
 		extended: { type: Types.Html, wysiwyg: true, height: 400, hidden: true },
@@ -49,8 +49,6 @@ ContentPage.schema.pre('save', function(next){
 			matches = imageRegEx.exec(this.content.markdown.md);
 		}
 	newMd += this.content.markdown.md.substr(nextSub);
-	// console.log(newMd);
-	// console.log(imageArr);
 	this.content.markdown.md = newMd;
 	next();
 });
