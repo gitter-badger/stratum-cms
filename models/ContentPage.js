@@ -20,6 +20,7 @@ ContentPage.add({
 	publishedDate: { type: Types.Date, index: true, dependsOn: { state: 'published' } },
 	subtitle: { type: String },
 	image: { type: Types.CloudinaryImage },
+	widget: { type: Types.Relationship, ref: 'StratumWidget', many: false },
 	content: {
 		brief: { type: Types.Textarea, height: 150, hidden: true },
 		extended: { type: Types.Html, wysiwyg: true, height: 400, hidden: true },

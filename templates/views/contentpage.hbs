@@ -10,6 +10,11 @@
 						{{#if author.name.first}}by {{author.name.first}}{{/if}}
 					</h5>
 				</header>
+				{{#if widget}}
+					{{widget.url}}
+					{{widget.slug}}
+					{{widget.register}}
+				{{/if}}
 				<img src="{{cloudinaryUrl image width="750" crop="fill"}}" class="img-responsive">
 				{{!-- {{#if image.url }}<img src="{{image.url}}" alt="" class="img-responsive">{{/if}} --}}
 				<div class="post">

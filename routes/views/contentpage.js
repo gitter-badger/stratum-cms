@@ -16,10 +16,14 @@ exports = module.exports = function(req, res) {
 
 	view.on('init', function(next) {
 
-		var q = keystone.list('ContentPage').model.findOne({
+		var q = keystone.list('ContentPage').model
+		.findOne({
 			state: 'published',
 			slug: locals.filters.page
-		});
+		})
+		.populate('widget');
+		
+
 		
 		q.exec(function(err, result) {
 			locals.data.contentpage = result;
