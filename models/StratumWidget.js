@@ -25,18 +25,18 @@ var StratumWidget = new keystone.List('StratumWidget', {
 StratumWidget.add({
 	widgetSlug: {
 		type: String
-			// readonly: true
 	},
 	pageId: {
 		type: String
-			// readonly: true
 	},
 	description: {
 		type: String
-			// readonly: true
+	},
+	removed: {
+		type: Boolean
 	}
 });
-StratumWidget.schema.virtual('register').get(function(){
+StratumWidget.schema.virtual('register').get(function() {
 	//Parse out the first characters before the slash as a register short name
 	var match = /^([A-Za-z0-9]+)\/[A-Za-z0-9]+$/.exec(this.widgetSlug);
 	return match && match[1];

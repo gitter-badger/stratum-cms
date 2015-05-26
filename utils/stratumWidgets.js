@@ -1,38 +1,68 @@
 var keystone = require('keystone'),
-	StratumWidget = keystone.list('StratumWidget'),
 	request = require('request'),
 	async = require('async'),
+	_ = require('underscore'),
 	url = 'http://demo.registercentrum.se/widgets';
 
-request({
-	url: url,
-	json: true
-}, function(err, res, body) {
-	var data;
-	if (err) {
-		console.log(err);
-	} else if (body && body.success) {
-		async.each(body.data || [], function(widget, cb) {
-			var widgetModel;
-			StratumWidget.model.findOne({
-				widgetSlug: widget.WidgetSlug
-			}, function(err, doc) {
-				if (err) {
-					cb(err);
-				} else {
-					widgetModel = doc || new StratumWidget.model();
-					widgetModel.widgetSlug = widget.WidgetSlug;
-					widgetModel.pageId = widget.PageID;
-					widgetModel.description = widget.Description;
-					widgetModel.save(cb);
-				}
+exports.load = function() {
+	var StratumWidget = keystone.list('StratumWidget'),
+		context = {
+			nNew: 0,
+			nRemoved: 0
+		};
+
+	async.series({
+		requestWidgets: function(next) {
+			request({
+				url: url,
+				json: true
+			}, function(err, res, body) {
+				context.widgets = body.data || [];
+				next(err);
 			});
-		}, function(err) {
-			if (err) { 
-				console.log(err);
-			} else {
-				console.log('Imported all widgets');
-			}
-		});
-	}
-});
+		},
+		processWidgets: function(next) {
+			async.each(context.widgets, function(widget, cb) {
+				StratumWidget.model.findOne({
+					widgetSlug: widget.WidgetSlug
+				}, function(err, doc) {
+					if (err) {
+						cb(err);
+					} else {
+						if (!doc) {
+							context.nNew++;
+						}
+						widgetModel = doc || new StratumWidget.model();
+						widgetModel.widgetSlug = widget.WidgetSlug;
+						widgetModel.pageId = widget.PageID;
+						widgetModel.description = widget.Description;
+						widgetModel.removed = false;
+						widgetModel.save(cb);
+					}
+				});
+			}, next);
+		},
+		findRemovedWidgets: function(next) {
+			StratumWidget.model.find()
+				.where('widgetSlug')
+				.nin(_.pluck(context.widgets, 'WidgetSlug'))
+				.exec(function(err, widgets) {
+					context.removedWidgets = widgets;
+					next(err);
+				});
+		},
+		tagRemovedWidgets: function(next) {
+			async.each(context.removedWidgets, function(widget, cb) {
+				context.nRemoved++;
+				widget.removed = true;
+				widget.save(cb);
+			}, next);
+		}
+	}, function(err) {
+		if (err) {
+			console.log(err);
+		} else {
+			console.log('Removed: %d, New widgets: %d', context.nRemoved, context.nNew);
+		}
+	});
+};
