@@ -4,6 +4,7 @@ var keystone = require('keystone'),
 	_ = require('underscore'),
 	url = 'http://demo.registercentrum.se/widgets';
 
+//!! Only run this after model initialization !!
 exports.load = function() {
 	var StratumWidget = keystone.list('StratumWidget'),
 		context = {
