@@ -43,7 +43,7 @@ keystone.init({
 
 keystone.import('models');
 
-widgets.load();
+widgets.load(); 
 
 // Setup common locals for your templates. The following are required for the
 // bundled templates and layouts. Any runtime locals (that should be set uniquely

@@ -5,7 +5,7 @@ var keystone = require('keystone'),
 	url = 'http://demo.registercentrum.se/widgets';
 
 //!! Only run this after model initialization !!
-exports.load = function() {
+exports.load = function(callback) {
 	var StratumWidget = keystone.list('StratumWidget'),
 		context = {
 			nNew: 0,
@@ -27,6 +27,7 @@ exports.load = function() {
 				StratumWidget.model.findOne({
 					widgetSlug: widget.WidgetSlug
 				}, function(err, doc) {
+					var widgetModel;
 					if (err) {
 						cb(err);
 					} else {
@@ -60,10 +61,10 @@ exports.load = function() {
 			}, next);
 		}
 	}, function(err) {
-		if (err) {
-			console.log(err);
-		} else {
-			console.log('Removed: %d, New widgets: %d', context.nRemoved, context.nNew);
+		if(!_.isFunction(callback)){
+			return err;
 		}
+		return callback(err, context);
+		// console.log('Removed: %d, New widgets: %d', context.nRemoved, context.nNew);
 	});
 };
